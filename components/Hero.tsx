@@ -66,61 +66,69 @@ const Hero: React.FC = () => {
           }`}
           style={{ backgroundImage: `url(${bg})` }}
         >
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/90"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/90"></div>
         </div>
       ))}
 
       <div className="container mx-auto px-4 relative z-10 text-center flex flex-col items-center">
-        <div className="flex justify-center mb-4 md:mb-8 scale-90 md:scale-100">
-           <div className="w-16 h-16 md:w-28 md:h-28 bg-green-600 rounded-full flex items-center justify-center text-white font-bold text-2xl md:text-5xl shadow-[0_0_40px_rgba(22,163,74,0.5)] border-2 md:border-4 border-white animate-pulse">
+        {/* Badge do Instituto - Escala Reduzida */}
+        <div className="flex justify-center mb-4 md:mb-6">
+           <div className="w-12 h-12 md:w-20 md:h-20 bg-green-600 rounded-full flex items-center justify-center text-white font-bold text-xl md:text-3xl shadow-[0_0_30px_rgba(22,163,74,0.5)] border-2 md:border-3 border-white animate-pulse">
             IV
           </div>
         </div>
         
-        <div className="inline-block px-3 py-1 md:px-6 md:py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full mb-6">
-          <span className="text-green-300 font-bold tracking-[0.1em] md:tracking-[0.4em] uppercase text-[8px] md:text-sm">
+        {/* Sub-título superior */}
+        <div className="inline-block px-3 py-1 md:px-5 md:py-1.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full mb-4 md:mb-6">
+          <span className="text-green-300 font-bold tracking-[0.1em] md:tracking-[0.3em] uppercase text-[7px] md:text-xs">
             Instituto Verde Criando Vidas
           </span>
         </div>
         
-        <h1 className="text-[2.2rem] sm:text-[2.8rem] md:text-7xl lg:text-9xl font-bold text-white mb-4 md:mb-6 leading-[1.1] drop-shadow-2xl">
-          <span className="font-signature text-4xl sm:text-5xl md:text-8xl lg:text-[10rem] block mb-1 md:mb-4 text-green-400 drop-shadow-xl saturate-150">O Espetáculo</span>
-          <div className="min-h-[4rem] sm:min-h-[5rem] md:min-h-[7rem] flex items-center justify-center">
-            <span className="text-white drop-shadow-2xl tracking-tight leading-tight px-2 break-words">{currentText}</span>
-            <span className="w-1 md:w-2 h-6 md:h-20 bg-green-500 ml-1 md:ml-4 animate-pulse rounded-full shadow-[0_0_20px_#22c55e]"></span>
+        {/* Título Principal - Refinado */}
+        <h1 className="mb-4 md:mb-6 leading-none drop-shadow-2xl flex flex-col items-center">
+          <span className="font-signature text-4xl md:text-6xl lg:text-7xl text-green-400 drop-shadow-xl saturate-150 mb-[-10px] md:mb-[-20px] z-10">O Espetáculo</span>
+          <div className="min-h-[3rem] md:min-h-[5rem] lg:min-h-[6rem] flex items-center justify-center">
+            <span className="text-white text-[1.8rem] sm:text-[2.2rem] md:text-5xl lg:text-6xl font-black tracking-tight drop-shadow-2xl px-2 break-words max-w-[90vw]">
+              {currentText}
+            </span>
+            <span className="w-0.5 md:w-1 h-6 md:h-12 bg-green-500 ml-1 md:ml-2 animate-pulse rounded-full shadow-[0_0_15px_#22c55e]"></span>
           </div>
         </h1>
 
-        <p className="text-gray-200 text-sm sm:text-lg md:text-2xl lg:text-3xl max-w-lg md:max-w-4xl mx-auto mb-10 md:mb-14 font-light leading-relaxed px-4 drop-shadow-lg italic opacity-90">
+        {/* Citação / Slogan */}
+        <p className="text-gray-200 text-xs sm:text-sm md:text-xl lg:text-2xl max-w-lg md:max-w-3xl mx-auto mb-8 md:mb-12 font-light leading-relaxed px-6 drop-shadow-lg italic opacity-90">
           "A sapatilha é o instrumento, mas a alma é quem dita o passo."
         </p>
 
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 md:gap-8 w-full px-4 sm:px-0">
-          <a href="#atividades" className="w-full sm:w-auto px-8 md:px-14 py-4 md:py-5 bg-green-600 text-white rounded-full font-black hover:bg-green-700 transition-all transform hover:scale-105 shadow-[0_15px_30px_-5px_rgba(22,163,74,0.4)] text-center text-xs md:text-lg uppercase tracking-widest active:scale-95">
+        {/* Botões - Tamanho Harmonizado */}
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-3 md:gap-6 w-full px-6 sm:px-0">
+          <a href="#atividades" className="w-full sm:w-auto px-8 md:px-10 py-3 md:py-4 bg-green-600 text-white rounded-full font-black hover:bg-green-700 transition-all transform hover:scale-105 shadow-[0_10px_20px_-5px_rgba(22,163,74,0.4)] text-center text-[10px] md:text-sm uppercase tracking-widest active:scale-95">
             Conheça os Cursos
           </a>
-          <a href="#contato" className="w-full sm:w-auto px-8 md:px-14 py-4 md:py-5 bg-transparent border-2 border-white/80 text-white rounded-full font-black hover:bg-white hover:text-green-900 transition-all transform hover:scale-105 text-center text-xs md:text-lg uppercase tracking-widest shadow-xl active:scale-95 backdrop-blur-sm">
+          <a href="#contato" className="w-full sm:w-auto px-8 md:px-10 py-3 md:py-4 bg-transparent border-2 border-white/80 text-white rounded-full font-black hover:bg-white hover:text-green-900 transition-all transform hover:scale-105 text-center text-[10px] md:text-sm uppercase tracking-widest shadow-xl active:scale-95 backdrop-blur-sm">
             Fale Conosco
           </a>
         </div>
 
-        {/* Download Link PDF Portfolio */}
-        <div className="mt-10 md:mt-16 animate-fade-in">
+        {/* Link para PDF - Otimizado */}
+        <div className="mt-8 md:mt-12">
           <a 
             href="#" 
             onClick={(e) => { e.preventDefault(); alert('Portfólio baixado com sucesso!'); }}
-            className="flex items-center gap-3 text-white/70 hover:text-green-400 transition-colors group text-[10px] md:text-sm font-bold uppercase tracking-[0.2em]"
+            className="flex items-center gap-2 text-white/60 hover:text-green-400 transition-colors group text-[9px] md:text-[11px] font-bold uppercase tracking-[0.2em]"
           >
-            <div className="w-8 h-8 md:w-10 md:h-10 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-green-600/20 group-hover:text-green-400 transition-all">
-              <Download size={16} />
+            <div className="w-7 h-7 md:w-8 md:h-8 bg-white/5 rounded-full flex items-center justify-center group-hover:bg-green-600/20 transition-all border border-white/10">
+              <Download size={14} />
             </div>
-            Baixar Portfólio Institucional (PDF)
+            Baixar Portfólio PDF
           </a>
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center opacity-50">
-        <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center pt-1.5">
+      {/* Indicador de Scroll - Pequeno e Elegante */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center opacity-40">
+        <div className="w-5 h-8 border border-white rounded-full flex justify-center pt-1">
           <div className="w-1 h-2 bg-green-400 rounded-full animate-bounce"></div>
         </div>
       </div>
