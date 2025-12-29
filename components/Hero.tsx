@@ -7,7 +7,7 @@ const Hero: React.FC = () => {
     "Esporte Salva Vidas!",
     "Cultura e Lazer para a Comunidade",
     "Superação e Dedicação desde 2007",
-    "Formando Cidadãos no Engenho da Rainha"
+    "Transforme seus Sonhos em Artes"
   ];
 
   const backgrounds = [
@@ -64,13 +64,12 @@ const Hero: React.FC = () => {
       {backgrounds.map((bg, index) => (
         <div 
           key={bg}
-          className={`absolute inset-0 z-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out ${
+          className={`absolute inset-0 z-0 bg-cover bg-center transition-opacity duration-[2000ms] ease-in-out ${
             index === currentBgIndex ? 'opacity-100 scale-110' : 'opacity-0 scale-100'
           }`}
           style={{ 
             backgroundImage: `url(${bg})`,
-            transitionProperty: 'opacity, transform',
-            transitionDuration: '2000ms'
+            transitionProperty: 'opacity, transform'
           }}
         >
           <div className="absolute inset-0 bg-black/70"></div>
@@ -78,37 +77,37 @@ const Hero: React.FC = () => {
       ))}
 
       <div className="container mx-auto px-4 relative z-10 text-center">
-        <div className="inline-block px-4 py-1 bg-green-600 bg-opacity-20 border border-green-500 rounded-full mb-6 animate-fadeIn">
+        <div className="inline-block px-4 py-1 bg-green-600 bg-opacity-20 border border-green-500 rounded-full mb-6 animate-fadeIn shadow-lg">
           <span className="text-green-400 font-bold tracking-widest uppercase text-xs sm:text-sm">
             Instituto Verde Criando Vidas
           </span>
         </div>
         
         <h1 className="text-4xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight">
-          <span className="font-signature text-5xl md:text-8xl block mb-4 text-green-500">Criando Vidas</span>
+          <span className="font-signature text-5xl md:text-8xl block mb-4 text-green-500 drop-shadow-md">Criando Vidas</span>
           <div className="min-h-[5rem] md:min-h-[7rem] flex items-center justify-center">
-            <span className="text-white drop-shadow-lg">{currentText}</span>
+            <span className="text-white drop-shadow-lg tracking-tight">{currentText}</span>
             <span className="w-1 h-10 md:h-16 bg-green-500 ml-2 animate-pulse"></span>
           </div>
         </h1>
 
         <p className="text-gray-300 text-base md:text-xl max-w-3xl mx-auto mb-10 font-light leading-relaxed px-4">
-          Idealizado em 2007, somos um polo de cultura, esporte, educação e lazer no Engenho da Rainha, transformando realidades através da dedicação e superação.
+          Desde 2007, transformando a realidade do Engenho da Rainha através da arte, esporte, educação e lazer. Um espaço de sonhos e cidadania.
         </p>
 
         <div className="flex flex-col sm:flex-row justify-center gap-4 px-6">
-          <a href="#atividades" className="px-10 py-4 bg-green-600 text-white rounded-full font-bold hover:bg-green-700 transition-all transform hover:scale-105 shadow-xl text-center">
+          <a href="#atividades" className="px-10 py-4 bg-green-600 text-white rounded-full font-bold hover:bg-green-700 transition-all transform hover:scale-105 shadow-xl text-center active:scale-95">
             Nossos Projetos
           </a>
-          <a href="#contato" className="px-10 py-4 bg-transparent border-2 border-white text-white rounded-full font-bold hover:bg-white hover:text-green-700 transition-all transform hover:scale-105 text-center">
+          <a href="#contato" className="px-10 py-4 bg-transparent border-2 border-white text-white rounded-full font-bold hover:bg-white hover:text-green-700 transition-all transform hover:scale-105 text-center active:scale-95">
             Fale Conosco
           </a>
         </div>
       </div>
 
       {/* Scroll Down Indicator */}
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
-        <span className="text-white text-xs uppercase tracking-widest mb-2 opacity-50">Role para explorar</span>
+      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center group cursor-pointer" onClick={() => document.getElementById('sobre')?.scrollIntoView({behavior: 'smooth'})}>
+        <span className="text-white text-[10px] uppercase tracking-widest mb-2 opacity-50 group-hover:opacity-100 transition-opacity">Role para explorar</span>
         <div className="w-6 h-10 border-2 border-white border-opacity-30 rounded-full flex justify-center pt-2">
           <div className="w-1 h-2 bg-green-50 rounded-full animate-bounce"></div>
         </div>
