@@ -4,18 +4,19 @@ import React, { useState, useEffect } from 'react';
 const Hero: React.FC = () => {
   const words = [
     "Onde o Ballet Realiza Sonhos",
-    "Transformando Vidas através da Arte",
-    "Esporte Salva Vidas!",
-    "Transforme seus Sonhos em Artes",
-    "Superação e Dedicação no Engenho da Rainha"
+    "A Magia da Dança em Cada Passo",
+    "Sua Sapatilha, Seu Futuro",
+    "Transformando Vidas no Engenho da Rainha",
+    "A Arte que Inspira Comunidades"
   ];
 
+  // Imagens de alta performance que emulam o palco real (similar às fotos enviadas)
   const backgrounds = [
-    "https://images.unsplash.com/photo-1518834107812-67b0b7c58434?auto=format&fit=crop&q=80",
-    "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&q=80",
-    "https://images.unsplash.com/photo-1506450983270-d729442ad754?auto=format&fit=crop&q=80",
-    "https://images.unsplash.com/photo-1547153760-18fc86324498?auto=format&fit=crop&q=80",
-    "https://images.unsplash.com/photo-1535525153412-5a42439a210d?auto=format&fit=crop&q=80"
+    "https://images.unsplash.com/photo-1518834107812-67b0b7c58434?auto=format&fit=crop&q=80", // Grupo no palco (similar à foto 1)
+    "https://images.unsplash.com/photo-1535525153412-5a42439a210d?auto=format&fit=crop&q=80", // Solo dramático (similar à foto 2/3)
+    "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&q=80", // Performance em luz cênica
+    "https://images.unsplash.com/photo-1516478177764-9fe5bd7e9717?auto=format&fit=crop&q=80", // Ensaio clássico
+    "https://images.unsplash.com/photo-1506450983270-d729442ad754?auto=format&fit=crop&q=80"  // Foco na disciplina
   ];
   
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
@@ -30,24 +31,21 @@ const Hero: React.FC = () => {
       const fullText = words[currentWordIndex];
       
       if (!isDeleting && currentText === fullText) {
-        // Parou de digitar (pausa no texto completo)
         setIsTyping(false);
-        setTimeout(() => setIsDeleting(true), 2000);
+        setTimeout(() => setIsDeleting(true), 3000);
       } else if (isDeleting && currentText === "") {
-        // Parou de apagar (troca de palavra)
         setIsTyping(false);
         setIsDeleting(false);
         setCurrentWordIndex((prev) => (prev + 1) % words.length);
         setSpeed(200);
       } else {
-        // Está ativamente digitando ou apagando
         setIsTyping(true);
         if (isDeleting) {
           setCurrentText(fullText.substring(0, currentText.length - 1));
-          setSpeed(50);
+          setSpeed(60);
         } else {
           setCurrentText(fullText.substring(0, currentText.length + 1));
-          setSpeed(100);
+          setSpeed(120);
         }
       }
     };
@@ -59,63 +57,62 @@ const Hero: React.FC = () => {
   useEffect(() => {
     const bgTimer = setInterval(() => {
       setCurrentBgIndex((prev) => (prev + 1) % backgrounds.length);
-    }, 5000);
+    }, 8000);
     return () => clearInterval(bgTimer);
   }, []);
 
   return (
     <section id="inicio" className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Slider com Blur Dinâmico */}
       {backgrounds.map((bg, index) => (
         <div 
           key={bg}
-          className={`absolute inset-0 z-0 bg-cover bg-center transition-all duration-[1500ms] ease-in-out ${
-            index === currentBgIndex ? 'opacity-100 scale-105' : 'opacity-0 scale-100'
-          } ${isTyping ? 'blur-md' : 'blur-none'}`}
+          className={`absolute inset-0 z-0 bg-cover bg-center transition-all duration-[3000ms] ease-in-out ${
+            index === currentBgIndex ? 'opacity-100 scale-110' : 'opacity-0 scale-100'
+          } ${isTyping ? 'blur-[10px]' : 'blur-none'}`}
           style={{ backgroundImage: `url(${bg})` }}
         >
-          <div className="absolute inset-0 bg-black/50 backdrop-blur-[1px]"></div>
+          <div className="absolute inset-0 bg-black/50"></div>
         </div>
       ))}
 
       <div className="container mx-auto px-4 relative z-10 text-center">
-        <div className="flex justify-center mb-8">
-           <div className="w-24 h-24 bg-green-600 rounded-full flex items-center justify-center text-white font-bold text-4xl shadow-[0_0_40px_rgba(34,197,94,0.4)] border-4 border-white animate-pulse">
+        <div className="flex justify-center mb-10">
+           <div className="w-28 h-28 bg-green-600 rounded-full flex items-center justify-center text-white font-bold text-5xl shadow-[0_0_60px_#16a34a] border-4 border-white animate-pulse">
             IV
           </div>
         </div>
         
-        <div className="inline-block px-5 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full mb-8">
-          <span className="text-white font-bold tracking-[0.2em] uppercase text-xs sm:text-sm">
+        <div className="inline-block px-8 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full mb-10">
+          <span className="text-green-300 font-bold tracking-[0.4em] uppercase text-xs md:text-sm">
             Instituto Verde Criando Vidas
           </span>
         </div>
         
-        <h1 className="text-4xl md:text-7xl lg:text-8xl font-bold text-white mb-8 leading-tight">
-          <span className="font-signature text-5xl md:text-9xl block mb-6 text-green-400 drop-shadow-xl">Portfólio 2024</span>
-          <div className="min-h-[5rem] flex items-center justify-center">
-            <span className="text-white drop-shadow-2xl tracking-tight">{currentText}</span>
-            <span className="w-1.5 h-10 md:h-16 bg-green-500 ml-3 animate-pulse"></span>
+        <h1 className="text-5xl md:text-8xl lg:text-9xl font-bold text-white mb-8 leading-tight drop-shadow-2xl">
+          <span className="font-signature text-7xl md:text-[10rem] block mb-6 text-green-400 drop-shadow-xl">O Palco</span>
+          <div className="min-h-[6rem] flex items-center justify-center">
+            <span className="text-white drop-shadow-2xl tracking-tighter filter saturate-150">{currentText}</span>
+            <span className="w-2 h-12 md:h-20 bg-green-500 ml-4 animate-pulse rounded-full shadow-[0_0_25px_#22c55e]"></span>
           </div>
         </h1>
 
-        <p className="text-gray-100 text-lg md:text-2xl max-w-3xl mx-auto mb-12 font-light leading-relaxed px-4 drop-shadow-md italic">
-          "A vida é como a dança... Aos poucos vamos acertando os passos."
+        <p className="text-gray-200 text-xl md:text-3xl max-w-4xl mx-auto mb-16 font-light leading-relaxed px-6 drop-shadow-lg italic">
+          "A sapatilha é o instrumento, mas a alma é quem dita o passo."
         </p>
 
-        <div className="flex flex-col sm:flex-row justify-center gap-6 px-6">
-          <a href="#atividades" className="px-12 py-5 bg-green-600 text-white rounded-full font-bold hover:bg-green-700 transition-all transform hover:scale-110 shadow-2xl text-center">
-            Ver Atividades
+        <div className="flex flex-col sm:flex-row justify-center gap-10 px-6">
+          <a href="#atividades" className="px-16 py-6 bg-green-600 text-white rounded-full font-black hover:bg-green-700 transition-all transform hover:scale-110 shadow-[0_20px_50px_rgba(22,163,74,0.5)] text-center text-xl uppercase tracking-widest">
+            Nossos Cursos
           </a>
-          <a href="#contato" className="px-12 py-5 bg-transparent border-2 border-white text-white rounded-full font-bold hover:bg-white hover:text-green-800 transition-all transform hover:scale-110 text-center">
-            Fale no WhatsApp
+          <a href="#contato" className="px-16 py-6 bg-transparent border-2 border-white text-white rounded-full font-black hover:bg-white hover:text-green-900 transition-all transform hover:scale-110 text-center text-xl uppercase tracking-widest shadow-2xl">
+            Fale Conosco
           </a>
         </div>
       </div>
 
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center opacity-60">
-        <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center pt-2">
-          <div className="w-1 h-2 bg-green-400 rounded-full animate-bounce"></div>
+      <div className="absolute bottom-16 left-1/2 -translate-x-1/2 flex flex-col items-center opacity-80">
+        <div className="w-9 h-14 border-2 border-white rounded-full flex justify-center pt-2 shadow-2xl">
+          <div className="w-2 h-4 bg-green-400 rounded-full animate-bounce"></div>
         </div>
       </div>
     </section>

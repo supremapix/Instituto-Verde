@@ -1,72 +1,66 @@
 
 import React from 'react';
-import { Target, Eye, Heart, History, Star, Award } from 'lucide-react';
+import { Target, Eye, Heart, History } from 'lucide-react';
 
 const About: React.FC = () => {
-  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-    e.currentTarget.src = 'https://placehold.co/800x1200/059669/ffffff?text=Bailarina+Instituto+Verde';
-  };
-
   return (
     <section id="sobre" className="py-24 bg-white relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
-        <div className="flex flex-col lg:flex-row gap-16 items-center">
+        <div className="flex flex-col lg:flex-row gap-20 items-center">
           <div className="lg:w-1/2 relative group">
-            <div className="absolute -top-6 -left-6 w-full h-full border-2 border-green-600 rounded-3xl -z-10 group-hover:top-0 group-hover:left-0 transition-all duration-500"></div>
-            <img 
-              src="https://images.unsplash.com/photo-1506450983270-d729442ad754?auto=format&fit=crop&q=80" 
-              alt="Bailarina Instituto Verde" 
-              className="rounded-3xl shadow-2xl w-full object-cover h-[500px] lg:h-[700px] bg-gray-50 transform group-hover:scale-[1.02] transition-transform duration-700"
-              onError={handleImageError}
-            />
-            <div className="absolute bottom-8 left-8 right-8 bg-white/95 backdrop-blur-sm p-8 rounded-2xl shadow-2xl border-l-8 border-green-600 transform hover:-translate-y-2 transition-transform duration-300">
-              <p className="text-gray-800 italic font-medium text-lg leading-relaxed">
-                "A vida é como a dança... Aos poucos vamos acertando os passos."
-              </p>
-              <p className="text-green-600 font-bold mt-3 uppercase tracking-widest text-sm">— Amanda Visan, Presidenta</p>
+            <div className="absolute -top-10 -left-10 w-40 h-40 bg-green-600/10 rounded-full blur-3xl"></div>
+            <div className="relative z-10">
+              <img 
+                src="https://images.unsplash.com/photo-1547153760-18fc86324498?auto=format&fit=crop&q=80" 
+                alt="Bailarina profissional Instituto Verde" 
+                className="rounded-[50px] shadow-[0_40px_80px_-15px_rgba(0,0,0,0.4)] w-full object-cover h-[600px] lg:h-[800px] bg-gray-50 transform hover:scale-[1.03] transition-all duration-1000"
+              />
+              <div className="absolute -bottom-8 -right-8 bg-white p-10 rounded-[40px] shadow-2xl border-l-[10px] border-green-600 max-w-sm">
+                <p className="text-gray-900 italic font-bold text-xl leading-relaxed">
+                  "O ballet transforma o corpo em poesia e a disciplina em liberdade."
+                </p>
+                <p className="text-green-600 font-black mt-5 uppercase tracking-[0.3em] text-xs">Amanda Visan • Presidente</p>
+              </div>
             </div>
           </div>
 
           <div className="lg:w-1/2">
-            <div className="inline-flex items-center gap-2 mb-4">
-              <History className="text-green-600" size={20} />
-              <span className="text-green-600 font-bold uppercase tracking-widest text-sm">Nossa Trajetória</span>
+            <div className="inline-flex items-center gap-4 mb-8">
+              <History className="text-green-600" size={28} />
+              <span className="text-green-600 font-black uppercase tracking-[0.3em] text-sm">Legado de Arte Social</span>
             </div>
-            <h2 className="text-4xl md:text-6xl font-bold mb-8 text-gray-900 leading-tight">Onde cada passo <br/><span className="text-green-600">Transforma Vidas</span></h2>
+            <h2 className="text-5xl md:text-7xl font-black mb-10 text-gray-900 leading-tight">17 Anos Educando <br/><span className="text-green-600">pela Dança</span></h2>
             
-            <div className="space-y-6 text-gray-600 leading-relaxed text-lg text-justify">
+            <div className="space-y-10 text-gray-600 leading-relaxed text-xl text-justify font-light">
               <p>
-                Idealizado em 2007 por <strong>André Reboredo</strong>, o Instituto Verde Criando Vidas consolidou-se em 2014 com o Projeto Social Liberdance. Sob a liderança da renomada professora <strong>Amanda Visan</strong>, renovamos nossa missão de democratizar o ballet e a cultura.
+                O <strong>Instituto Verde Criando Vidas</strong> acredita que o ballet clássico é uma poderosa ferramenta de ascensão social. Desde 2007, transformamos o Engenho da Rainha em um celeiro de talentos artísticos.
               </p>
               <p>
-                Amanda Visan, bailarina e atriz desde 1996, carrega uma história de resiliência sem igual. Superando um descolamento de retina, ela fez da dança seu refúgio e sua arma para combater a desigualdade, garantindo que o palco seja acessível a todos.
+                Sob a direção da bailarina <strong>Amanda Visan</strong>, o projeto Liberdance oferece formação técnica de alto nível, garantindo que a sapatilha de ponta chegue a todos, independentemente da condição social.
               </p>
-              <div className="bg-green-50 p-8 rounded-3xl border-l-4 border-green-500 shadow-sm">
-                <div className="flex items-center gap-3 mb-4 text-green-700">
-                  <Award size={28} />
-                  <span className="font-bold uppercase text-sm tracking-widest">Reconhecimento Nacional</span>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-10 pt-8">
+                <div className="group">
+                  <div className="w-16 h-16 bg-green-50 rounded-3xl flex items-center justify-center mb-5 group-hover:bg-green-600 transition-all shadow-sm">
+                    <Target className="text-green-600 group-hover:text-white" size={32} />
+                  </div>
+                  <h4 className="font-bold text-gray-900 mb-2">Excelência</h4>
+                  <p className="text-sm text-gray-500">Formação técnica rigorosa e gratuita.</p>
                 </div>
-                <p className="text-base font-medium text-gray-700">
-                  Capa da revista <strong>Infock Dance</strong>, Amanda trouxe sua excelência de palcos como a Lona Cultural Gilberto Gil diretamente para o coração do Engenho da Rainha.
-                </p>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-              <div className="p-8 rounded-3xl bg-white shadow-xl border border-gray-100 hover:border-green-200 transition-all hover:shadow-2xl">
-                <Target className="text-green-600 mb-4" size={32} />
-                <h4 className="font-bold text-gray-900 mb-2 uppercase text-xs tracking-wider">Missão</h4>
-                <p className="text-sm text-gray-500">Transformar através da cultura e esporte gratuito.</p>
-              </div>
-              <div className="p-8 rounded-3xl bg-white shadow-xl border border-gray-100 hover:border-green-200 transition-all hover:shadow-2xl">
-                <Eye className="text-green-600 mb-4" size={32} />
-                <h4 className="font-bold text-gray-900 mb-2 uppercase text-xs tracking-wider">Visão</h4>
-                <p className="text-sm text-gray-500">Referência em inclusão social pela arte no Rio.</p>
-              </div>
-              <div className="p-8 rounded-3xl bg-white shadow-xl border border-gray-100 hover:border-green-200 transition-all hover:shadow-2xl">
-                <Heart className="text-green-600 mb-4" size={32} />
-                <h4 className="font-bold text-gray-900 mb-2 uppercase text-xs tracking-wider">Valores</h4>
-                <p className="text-sm text-gray-500">Dedicação, disciplina, empatia e integridade.</p>
+                <div className="group">
+                  <div className="w-16 h-16 bg-green-50 rounded-3xl flex items-center justify-center mb-5 group-hover:bg-green-600 transition-all shadow-sm">
+                    <Eye className="text-green-600 group-hover:text-white" size={32} />
+                  </div>
+                  <h4 className="font-bold text-gray-900 mb-2">Futuro</h4>
+                  <p className="text-sm text-gray-500">Vidas transformadas pela arte clássica.</p>
+                </div>
+                <div className="group">
+                  <div className="w-16 h-16 bg-green-50 rounded-3xl flex items-center justify-center mb-5 group-hover:bg-green-600 transition-all shadow-sm">
+                    <Heart className="text-green-600 group-hover:text-white" size={32} />
+                  </div>
+                  <h4 className="font-bold text-gray-900 mb-2">Paixão</h4>
+                  <p className="text-sm text-gray-500">Amor incondicional à comunidade e à dança.</p>
+                </div>
               </div>
             </div>
           </div>
