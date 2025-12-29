@@ -18,19 +18,26 @@
         60% { transform: scale(1); }
       }
       .animate-heartbeat { animation: heartbeat 1.2s infinite; }
+      
+      /* Previne flashes de conteúdo não estilizado */
+      [v-cloak] { display: none; }
     </style>
-  <script type="importmap">
+    <script type="importmap">
 {
   "imports": {
-    "react": "https://esm.sh/react@^19.2.3",
+    "react": "https://esm.sh/react@19.0.0",
+    "react-dom": "https://esm.sh/react-dom@19.0.0",
+    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
+    "lucide-react": "https://esm.sh/lucide-react@0.460.0?external=react",
     "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
+    "react/": "https://esm.sh/react@^19.2.3/"
   }
 }
 </script>
-</head>
+  </head>
   <body>
     <div id="root"></div>
+    <!-- Garantindo que o entry point seja carregado como módulo -->
+    <script type="module" src="index.tsx"></script>
   </body>
 </html>
