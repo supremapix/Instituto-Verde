@@ -4,82 +4,79 @@ import { Instagram, Mail, Phone, MapPin, Heart } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-gray-900 text-white pt-20 pb-10">
+    <footer className="bg-gray-950 text-white pt-24 pb-12">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20 border-b border-white/5 pb-20">
           <div>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-bold text-2xl shadow-lg">IV</div>
+            <div className="flex items-center gap-4 mb-8">
+              <div className="w-14 h-14 bg-green-600 rounded-2xl flex items-center justify-center text-white font-bold text-2xl shadow-lg rotate-3">IV</div>
               <div className="flex flex-col">
-                <span className="font-bold text-xl leading-none">Instituto Verde</span>
+                <span className="font-bold text-2xl leading-none">Instituto Verde</span>
                 <span className="text-green-500 text-xs font-bold uppercase tracking-widest mt-1">Criando Vidas</span>
               </div>
             </div>
-            <p className="text-gray-400 leading-relaxed mb-6">
-              Transformando a realidade do Engenho da Rainha desde 2007 através da cultura, esporte, educação e lazer.
+            <p className="text-gray-400 leading-relaxed mb-8 text-sm">
+              Fundado por André Reboredo em 2007 e hoje presidido por Amanda Visan. Um porto seguro de cultura e esporte no Engenho da Rainha.
             </p>
             <div className="flex gap-4">
-              <a href="https://instagram.com/institutoverdecriandovidas" target="_blank" className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-green-600 transition-all text-gray-300 hover:text-white">
-                <Instagram size={20} />
+              <a href="https://instagram.com/institutoverdecriandovidas" target="_blank" className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center hover:bg-green-600 transition-all text-gray-400 hover:text-white group">
+                <Instagram size={24} className="group-hover:scale-110 transition-transform" />
               </a>
-              <a href="mailto:institutovcvidas25@gmail.com" className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-green-600 transition-all text-gray-300 hover:text-white">
-                <Mail size={20} />
+              <a href="mailto:institutovcvidas25@gmail.com" className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center hover:bg-green-600 transition-all text-gray-400 hover:text-white group">
+                <Mail size={24} className="group-hover:scale-110 transition-transform" />
               </a>
             </div>
           </div>
 
           <div>
-            <h4 className="text-lg font-bold mb-6 border-b border-white/10 pb-2">Links Rápidos</h4>
+            <h4 className="text-white font-bold mb-8 uppercase tracking-widest text-sm">Navegação</h4>
             <ul className="space-y-4">
-              <li><a href="#inicio" className="text-gray-400 hover:text-green-500 transition-colors">Página Inicial</a></li>
-              <li><a href="#sobre" className="text-gray-400 hover:text-green-500 transition-colors">Nossa História</a></li>
-              <li><a href="#atividades" className="text-gray-400 hover:text-green-500 transition-colors">Projetos Atuais</a></li>
-              <li><a href="#acoes-sociais" className="text-gray-400 hover:text-green-500 transition-colors">Ações Sociais</a></li>
+              <li><a href="#inicio" className="text-gray-400 hover:text-green-500 transition-colors flex items-center gap-2 group"><span className="w-1 h-1 bg-green-600 rounded-full group-hover:w-3 transition-all"></span>Início</a></li>
+              <li><a href="#sobre" className="text-gray-400 hover:text-green-500 transition-colors flex items-center gap-2 group"><span className="w-1 h-1 bg-green-600 rounded-full group-hover:w-3 transition-all"></span>Nossa História</a></li>
+              <li><a href="#atividades" className="text-gray-400 hover:text-green-500 transition-colors flex items-center gap-2 group"><span className="w-1 h-1 bg-green-600 rounded-full group-hover:w-3 transition-all"></span>Cursos e Projetos</a></li>
+              <li><a href="#acoes-sociais" className="text-gray-400 hover:text-green-500 transition-colors flex items-center gap-2 group"><span className="w-1 h-1 bg-green-600 rounded-full group-hover:w-3 transition-all"></span>Ações Sociais</a></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-lg font-bold mb-6 border-b border-white/10 pb-2">Atividades</h4>
+            <h4 className="text-white font-bold mb-8 uppercase tracking-widest text-sm">Atividades</h4>
             <ul className="space-y-4">
-              <li><a href="#atividades" className="text-gray-400 hover:text-green-500 transition-colors">Ballet e Jazz</a></li>
-              <li><a href="#atividades" className="text-gray-400 hover:text-green-500 transition-colors">Kickboxing</a></li>
-              <li><a href="#atividades" className="text-gray-400 hover:text-green-500 transition-colors">Teatro Audiovisual</a></li>
-              <li><a href="#atividades" className="text-gray-400 hover:text-green-500 transition-colors">Cursos Profissionais</a></li>
+              <li className="text-gray-400">Ballet Clássico</li>
+              <li className="text-gray-400">Kickboxing (Prof. Jorge)</li>
+              <li className="text-gray-400">Teatro e Áudio Visual</li>
+              <li className="text-gray-400">Cursos Profissionalizantes</li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-lg font-bold mb-6 border-b border-white/10 pb-2">Onde Estamos</h4>
-            <ul className="space-y-4">
-              <li className="flex gap-3 text-gray-400">
-                <MapPin className="text-green-600 flex-shrink-0" size={20} />
-                <span>Rua Mário Ferreira, 227 - Eng da Rainha - RJ</span>
+            <h4 className="text-white font-bold mb-8 uppercase tracking-widest text-sm">Localização</h4>
+            <ul className="space-y-6">
+              <li className="flex gap-4 text-gray-400 group">
+                <MapPin className="text-green-600 flex-shrink-0" size={24} />
+                <span className="text-sm">Rua Mário Ferreira, 227 - Engenho da Rainha, RJ</span>
               </li>
-              <li className="flex gap-3 text-gray-400">
-                <Phone className="text-green-600 flex-shrink-0" size={20} />
-                <span>(21) 98383-6614</span>
-              </li>
-              <li className="flex gap-3 text-gray-400">
-                <Mail className="text-green-600 flex-shrink-0" size={20} />
-                <span>institutovcvidas25@gmail.com</span>
+              <li className="flex gap-4 text-gray-400">
+                <Phone className="text-green-600 flex-shrink-0" size={24} />
+                <span className="text-sm">(21) 98383-6614</span>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="pt-10 border-t border-white/5 text-center">
-          <p className="text-gray-500 text-sm mb-4">
-            © {new Date().getFullYear()} Instituto Verde Criando Vidas. Todos os direitos reservados.
+        <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+          <p className="text-gray-500 text-sm">
+            © {new Date().getFullYear()} Instituto Verde Criando Vidas.
           </p>
-          <div className="flex items-center justify-center gap-1.5 text-gray-500 text-sm">
+          
+          <div className="flex items-center gap-2 text-gray-400 text-sm bg-white/5 px-6 py-3 rounded-full border border-white/5">
             Desenvolvido 
-            <Heart size={16} className="text-red-500 fill-red-500 animate-heartbeat mx-0.5" /> 
+            <Heart size={18} className="text-red-500 fill-red-500 animate-heartbeat" /> 
             por 
             <a 
               href="https://supremasite.com.br" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="font-bold text-gray-300 hover:text-green-500 transition-all flex items-center gap-1"
+              className="font-bold text-white hover:text-green-500 transition-all underline underline-offset-4 decoration-green-600"
             >
               Suprema Sites Express
             </a>
