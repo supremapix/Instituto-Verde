@@ -10,40 +10,48 @@ const Hero: React.FC = () => {
     "Superação e Dedicação no Engenho da Rainha"
   ];
 
-  // Imagens profissionais que emulam as fotos de palco e comunidade enviadas
   const backgrounds = [
-    "https://images.unsplash.com/photo-1518834107812-67b0b7c58434?auto=format&fit=crop&q=80", // Grupo no palco (similar à foto 1)
-    "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&q=80", // Solo de bailarina em destaque (similar à foto 2/3)
-    "https://images.unsplash.com/photo-1506450983270-d729442ad754?auto=format&fit=crop&q=80", // Foco em sapatilhas e detalhe
-    "https://images.unsplash.com/photo-1547153760-18fc86324498?auto=format&fit=crop&q=80", // Dança em grupo
-    "https://images.unsplash.com/photo-1535525153412-5a42439a210d?auto=format&fit=crop&q=80"  // Ensaios na comunidade
+    "https://images.unsplash.com/photo-1518834107812-67b0b7c58434?auto=format&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1506450983270-d729442ad754?auto=format&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1547153760-18fc86324498?auto=format&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1535525153412-5a42439a210d?auto=format&fit=crop&q=80"
   ];
   
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [currentBgIndex, setCurrentBgIndex] = useState(0);
   const [currentText, setCurrentText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
+  const [isTyping, setIsTyping] = useState(false);
   const [speed, setSpeed] = useState(150);
 
   useEffect(() => {
     const handleType = () => {
       const fullText = words[currentWordIndex];
-      if (isDeleting) {
-        setCurrentText(fullText.substring(0, currentText.length - 1));
-        setSpeed(50);
-      } else {
-        setCurrentText(fullText.substring(0, currentText.length + 1));
-        setSpeed(100);
-      }
-
+      
       if (!isDeleting && currentText === fullText) {
+        // Parou de digitar (pausa no texto completo)
+        setIsTyping(false);
         setTimeout(() => setIsDeleting(true), 2000);
       } else if (isDeleting && currentText === "") {
+        // Parou de apagar (troca de palavra)
+        setIsTyping(false);
         setIsDeleting(false);
         setCurrentWordIndex((prev) => (prev + 1) % words.length);
         setSpeed(200);
+      } else {
+        // Está ativamente digitando ou apagando
+        setIsTyping(true);
+        if (isDeleting) {
+          setCurrentText(fullText.substring(0, currentText.length - 1));
+          setSpeed(50);
+        } else {
+          setCurrentText(fullText.substring(0, currentText.length + 1));
+          setSpeed(100);
+        }
       }
     };
+
     const timer = setTimeout(handleType, speed);
     return () => clearTimeout(timer);
   }, [currentText, isDeleting, currentWordIndex, speed]);
@@ -57,16 +65,16 @@ const Hero: React.FC = () => {
 
   return (
     <section id="inicio" className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Slider */}
+      {/* Background Slider com Blur Dinâmico */}
       {backgrounds.map((bg, index) => (
         <div 
           key={bg}
-          className={`absolute inset-0 z-0 bg-cover bg-center transition-opacity duration-[2000ms] ease-in-out ${
+          className={`absolute inset-0 z-0 bg-cover bg-center transition-all duration-[1500ms] ease-in-out ${
             index === currentBgIndex ? 'opacity-100 scale-105' : 'opacity-0 scale-100'
-          }`}
-          style={{ backgroundImage: `url(${bg})`, transitionProperty: 'opacity, transform' }}
+          } ${isTyping ? 'blur-md' : 'blur-none'}`}
+          style={{ backgroundImage: `url(${bg})` }}
         >
-          <div className="absolute inset-0 bg-black/50 backdrop-blur-[2px]"></div>
+          <div className="absolute inset-0 bg-black/50 backdrop-blur-[1px]"></div>
         </div>
       ))}
 
