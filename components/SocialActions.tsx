@@ -48,24 +48,23 @@ const SocialActions: React.FC = () => {
           </div>
           
           <div className="lg:w-1/2 relative">
-            <div className="grid grid-cols-2 gap-10">
-              <div className="space-y-10">
+            <div className="grid grid-cols-2 gap-6 md:gap-10">
+              <div className="space-y-6 md:space-y-10">
                 <img 
                   src="https://images.unsplash.com/photo-1547153760-18fc86324498?auto=format&fit=crop&q=80" 
-                  className="rounded-[50px] shadow-2xl w-full h-[450px] object-cover border-[12px] border-gray-50 transform hover:rotate-3 transition-transform duration-700" 
-                  alt="Bailarina clássica em performance" 
+                  className="rounded-[30px] md:rounded-[50px] shadow-2xl w-full h-[350px] md:h-[450px] object-cover border-[8px] md:border-[12px] border-gray-50 transform hover:rotate-3 transition-transform duration-700" 
+                  alt="Bailarina clássica em performance solo" 
                 />
-                <div className="p-12 bg-gray-950 rounded-[40px] text-white text-center shadow-3xl border border-white/10">
-                  <p className="text-6xl font-black mb-3 text-green-500">100%</p>
-                  <p className="text-sm opacity-60 uppercase tracking-[0.3em] font-black">Impacto Social</p>
+                <div className="p-8 md:p-12 bg-gray-950 rounded-[30px] md:rounded-[40px] text-white text-center shadow-3xl border border-white/10">
+                  <p className="text-4xl md:text-6xl font-black mb-3 text-green-500">100%</p>
+                  <p className="text-[10px] md:text-sm opacity-60 uppercase tracking-[0.3em] font-black">Impacto Social</p>
                 </div>
               </div>
-              <div className="space-y-10 pt-24">
-                {/* Imagem que substitui o neon/tênis pela foto do espetáculo em grupo (emulando o anexo) */}
+              <div className="space-y-6 md:space-y-10 pt-16 md:pt-24">
                 <img 
                   src="https://images.unsplash.com/photo-1518834107812-67b0b7c58434?auto=format&fit=crop&q=80" 
-                  className="rounded-[50px] shadow-2xl w-full h-[550px] object-cover border-[12px] border-gray-50 transform hover:-rotate-3 transition-transform duration-700" 
-                  alt="Espetáculo de Ballet Instituto Verde" 
+                  className="rounded-[30px] md:rounded-[50px] shadow-2xl w-full h-[450px] md:h-[550px] object-cover border-[8px] md:border-[12px] border-gray-50 transform hover:-rotate-3 transition-transform duration-700" 
+                  alt="Apresentação coletiva das crianças no palco" 
                 />
               </div>
             </div>
