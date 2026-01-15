@@ -8,6 +8,7 @@ import SocialActions from './components/SocialActions';
 import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
 import FloatingButtons from './components/FloatingButtons';
+import Watermark from './components/Watermark';
 
 const App: React.FC = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -21,7 +22,8 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-900">
+    <div className="min-h-screen bg-gray-50 text-gray-900 relative">
+      <Watermark />
       <Navbar />
       <main>
         <Hero />
